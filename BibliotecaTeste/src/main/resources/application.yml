@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:meubanco   # banco em memória (apaga quando a aplicação reinicia)
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update          # opções: create, create-drop, update, validate, none
+    show-sql: true              # mostra as queries no console
+    properties:
+      hibernate:
+        format_sql: true        # formata as queries no console
+
+  h2:
+    console:
+      enabled: true             # habilita console web
+      path: /h2-console         # URL para acessar no navegador
+
+logging:
+  level:
+    org.hibernate.SQL: debug     # loga os SQLs
+    org.hibernate.type: trace    # mostra valores dos parâmetros
