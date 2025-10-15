@@ -11,7 +11,7 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtil {
 	private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 	private static final long EXPIRATION = 1000 * 60 * 60; // 1 hora
-	private static final String SECRET = "MinhaChaveSuperSecreta1234567890";
+	
 	public static String generateToken(String email, Set<String> roles) {
 		return Jwts.builder().setSubject(email).claim("roles", roles)
 				.setExpiration(new Date(System.currentTimeMillis() + EXPIRATION)).signWith(key).compact();
