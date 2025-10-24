@@ -37,7 +37,7 @@ public class AuthController {
 		usuario.setEmail(dto.getEmail());
 		usuario.setSenha(encoder.encode(dto.getSenha()));
 		usuario.setRoles(Collections.singleton("ROLE_USER"));
-
+		String token=JwtUtil.generateToken(usuario.getEmail(),usuario.getRoles());
 		repository.save(usuario);
 		return ResponseEntity.ok("Usuário criado");
 	}
